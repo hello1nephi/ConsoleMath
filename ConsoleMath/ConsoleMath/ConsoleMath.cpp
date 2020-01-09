@@ -9,47 +9,100 @@
  ************************************************************************/
 
 #include <iostream>
+#include <iomanip>
 void displayMainOptions();
+void displayAbout();
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello, and welcome to Console Math!\n";
+    cout << "Hello, and welcome to Console Math!\n";
     displayMainOptions();
 }
 
 void displayMainOptions()
 {
-   unsigned int option = 0;
+   unsigned short option = 0;
 
    do
    {
-      std::cout << "What math would you like to do?\n";
-      std::cout << "\tAlgebra: 1\n";
-      std::cout << "\tTriginometry: 2\n";
-      std::cout << "\tKinematics: 3\n";
-      
-      std::cout << "\tExit: 0\n";
-      std::cin >> option;
+      //printf("\033c"); // clears the console
+      cout << "What math would you like to do?\n";
+      cout << "\t1:  " << "Basic Math\n";
+      cout << "\t2:  " << "Algebra\n";
+      cout << "\t3:  " << "Geometry\n";
+      cout << "\t4:  " << "Triginometry\n";
+      cout << "\t    " << "Polynomials and Series\n";
+      cout << "\t    " << "Vectors\n";
+      cout << "\t    " << "Calculus\n";
+      cout << "\t    " << "Kinematics\n";
+
+      cout << "\t42: " << "About\n";      
+      cout << "\t0:  " << "Exit\n";
+
+      // marker for beginning of input
+      input:
+      cout << "Please enter choice: ";
+      cin >> option;
+
+      // check for failed input
+      if (cin.fail())
+      {
+         cin.clear();
+         cin.ignore();
+         // set to invalid input option
+         cout << "Invalid input!\n";
+         cout << "Please enter whole numbers only\n\n";
+         // jump to input beginning
+         goto input;
+      }
       
       switch (option)
       {
       case 0:
          break;
       case 1:
-         std::cout << "Algebra options\n";
+         cout << "Basic Math options\n";
          break;
       case 2:
-         std::cout << "Trig options\n";
+         cout << "Algebra options\n";
          break;
       case 3:
-         std::cout << "Kinematics options\n";
+         cout << "Geometry options\n";
+         break;
+      case 4:
+         cout << "Trig options\n";
+         break;
+      case 42:
+         displayAbout();
+         break;
+      case 999:
+         cout << "Invalid input!\n";
+         cout << "Please enter whole numbers only\n";
          break;
       default:
-         std::cout << "Invalid option!\n";
+         cout << "Invalid option!\n\n";
+         // jump to input rather than displaying again
+         goto input;
       }
 
       std::cout << std::endl << std::endl;
    } while (option != 0);
+}
+
+void displayAbout()
+{
+   char pause = ' ';
+   cout << "This is the about. who knew?\n";
+
+   cout << endl;
+   do
+   {
+      cout << "Continue? (y/n): ";
+      cin >> pause;
+   } while (tolower(pause) != 'y');
+   
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
