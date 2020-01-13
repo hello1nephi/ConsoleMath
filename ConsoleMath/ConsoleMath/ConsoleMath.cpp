@@ -1,4 +1,4 @@
-/***********************************************************************
+﻿/***********************************************************************
  * COMPONENT:
  *    ConsoleMath
  * Author:
@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include "InputControl.h"
 void displayMainOptions();
 void displayAbout();
 
@@ -19,15 +20,16 @@ int main()
 {
     cout << "Hello, and welcome to Console Math!\n";
     displayMainOptions();
+
+    return 0;
 }
 
 void displayMainOptions()
 {
-   unsigned short option = 0;
+   unsigned int option = 0;
 
    do
    {
-      //printf("\033c"); // clears the console
       cout << "What math would you like to do?\n";
       cout << "\t1:  " << "Basic Math\n";
       cout << "\t2:  " << "Algebra\n";
@@ -41,22 +43,8 @@ void displayMainOptions()
       cout << "\t42: " << "About\n";      
       cout << "\t0:  " << "Exit\n";
 
-      // marker for beginning of input
-      input:
-      cout << "Please enter choice: ";
-      cin >> option;
-
-      // check for failed input
-      if (cin.fail())
-      {
-         cin.clear();
-         cin.ignore();
-         // set to invalid input option
-         cout << "Invalid input!\n";
-         cout << "Please enter whole numbers only\n\n";
-         // jump to input beginning
-         goto input;
-      }
+      string message = "Please enter choice";
+      option = getUnsignedInt(message);
       
       switch (option)
       {
@@ -84,25 +72,21 @@ void displayMainOptions()
       default:
          cout << "Invalid option!\n\n";
          // jump to input rather than displaying again
-         goto input;
       }
 
-      std::cout << std::endl << std::endl;
+     // std::cout << std::endl << std::endl;
+      printf("\033c"); // clears the console
+
    } while (option != 0);
 }
 
 void displayAbout()
 {
-   char pause = ' ';
    cout << "This is the about. who knew?\n";
 
    cout << endl;
-   do
-   {
-      cout << "Continue? (y/n): ";
-      cin >> pause;
-   } while (tolower(pause) != 'y');
-   
+
+   continueQuestion();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

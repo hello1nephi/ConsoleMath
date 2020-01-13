@@ -149,9 +149,11 @@
   <ItemGroup>
     <ClCompile Include="BasicAlgebra.cpp" />
     <ClCompile Include="ConsoleMath.cpp" />
+    <ClCompile Include="InputControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicAlgebra.h" />
+    <ClInclude Include="InputControl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
