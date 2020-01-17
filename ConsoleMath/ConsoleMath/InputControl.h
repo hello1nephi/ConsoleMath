@@ -8,6 +8,7 @@
  ************************************************************************/
 #pragma once
 #include <string>
+#include <list>
 
 bool continueQuestion();
 
@@ -15,6 +16,8 @@ bool againQuestion();
 
 unsigned int getUnsignedInt(std::string message);
 
-long getLong(std::string message);
+long long getLong(std::string message);
 
 double getDouble(std::string message);
+
+std::list<double> * getOperands();

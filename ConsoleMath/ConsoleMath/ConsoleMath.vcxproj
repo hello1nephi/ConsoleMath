@@ -148,11 +148,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BasicAlgebra.cpp" />
+    <ClCompile Include="BasicMath.cpp" />
     <ClCompile Include="ConsoleMath.cpp" />
     <ClCompile Include="InputControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicAlgebra.h" />
+    <ClInclude Include="BasicMath.h" />
     <ClInclude Include="InputControl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

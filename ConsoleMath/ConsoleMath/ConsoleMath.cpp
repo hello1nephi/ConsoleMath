@@ -11,6 +11,8 @@
 #include <iostream>
 #include <iomanip>
 #include "InputControl.h"
+#include "BasicMath.h"
+#include "BasicAlgebra.h"
 void displayMainOptions();
 void displayAbout();
 
@@ -32,9 +34,9 @@ void displayMainOptions()
    {
       cout << "What math would you like to do?\n";
       cout << "\t1:  " << "Basic Math\n";
-      cout << "\t2:  " << "Algebra\n";
-      cout << "\t3:  " << "Geometry\n";
-      cout << "\t4:  " << "Triginometry\n";
+      cout << "\t    " << "Algebra\n";
+      cout << "\t    " << "Geometry\n";
+      cout << "\t    " << "Triginometry\n";
       cout << "\t    " << "Polynomials and Series\n";
       cout << "\t    " << "Vectors\n";
       cout << "\t    " << "Calculus\n";
@@ -51,7 +53,8 @@ void displayMainOptions()
       case 0:
          break;
       case 1:
-         cout << "Basic Math options\n";
+         //cout << "Basic Math options\n";
+          displayBasicMathOptions();
          break;
       case 2:
          cout << "Algebra options\n";
